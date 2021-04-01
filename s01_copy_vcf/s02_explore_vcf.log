@@ -1,0 +1,43 @@
+./s02_explore_vcf.sh
+Thu  1 Apr 17:41:41 UTC 2021
+
+bcftools 1.11
+Using htslib 1.11
+Copyright (C) 2020 Genome Research Ltd.
+License Expat: The MIT/Expat license
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+vcf: /home/share/data/s01_copy_vcf/zhang_hg38.bwa.QC.vcf.gz
+data_folder: /home/share/data/s01_copy_vcf
+
+
+Variant counts:
+
+Number of samples: 30
+Number of SNPs:    226906
+Number of INDELs:  22141
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   248487
+
+Calculating bcfstats...
+
+Making bcfstats plots...
+
+Parsing bcftools stats output: /home/share/data/s01_copy_vcf/bcfstats/zhang_hg38.bwa.QC.vchk
+Plotting graphs: python3 plot.py
+Creating PDF: pdflatex summary.tex >plot-vcfstats.log 2>&1
+Finished: /home/share/data/s01_copy_vcf/bcfstats/summary.pdf
+
+Extracting annotations ...
+
+--- FILTER ---
+
+ 248487 .
+
+Making summary ...
+
+Done
+Thu  1 Apr 17:42:11 UTC 2021
+

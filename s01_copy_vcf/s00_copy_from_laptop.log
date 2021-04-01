@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# s01_copy_from_laptop.log
+# Alexey Larionov, 31Mar2021
+
+Manually copied zhang_hg38.bwa.QC.vcf using rsync:
+
+rsync -avhe "ssh -i /Users/alexey/.ssh/test01_2020.pem" \
+/Users/alexey/Documents/mg/s2021/zhang_tests/data/d02_multisample_vcf/zhang_hg38.bwa.QC.vcf \
+ec2-user@35.178.77.13:/home/share/data/s01_copy_vcf/

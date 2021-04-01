@@ -1,0 +1,131 @@
+---
+title: "Explore VCF"
+author: "AL"
+date: "01 Apr 2021"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+    toc_float: true
+editor_options:
+  chunk_output_type: console
+---
+
+# Summary 
+
+- There is no data in  **FILTER** and **INFO**  
+- There are * in **Alt** and multiallelic sites  
+- **Novel** variants have **ID**-s like **chrchr1bp1955078**
+
+<style>
+pre{
+  overflow-x: auto;
+}
+pre code{
+  word-wrap: normal;
+  white-space: pre;
+}
+s</style>
+
+```{r echo=F}
+
+options(width=999)
+
+```
+
+# Start section
+
+```{r}
+
+Sys.time()
+rm(list=ls())
+graphics.off()
+gc()
+
+```
+
+# Read data
+
+```{r}
+
+# Read
+data_folder <- "/home/share/data/s01_copy_vcf"
+data_file <- "zhang_hg38.bwa.QC.annotations.txt"
+data.df <- read.table(file.path(data_folder,data_file),
+                      header=F,sep="\t",quote="")
+
+# Add colnames
+head(data.df)
+#View(head(data.df))
+colnames(data.df) <- c("chr","pos","id","ref","alt","filter","qual","info")
+
+# Check 
+dim(data.df)
+str(data.df)
+sum(is.na(data.df))
+head(data.df)
+
+# Clean-up
+rm(data_file)
+
+```
+
+# Filter and Info
+
+```{r}
+
+table(data.df$filter, useNA = "always")
+table(data.df$info, useNA = "always")
+
+```
+
+# ID for novel variants
+
+```{r}
+
+sum(data.df$id==".")
+
+x <- grepl("chr",data.df$id)
+sum(x)
+head(data.df[x,])
+rm(x)
+
+```
+
+# Qual
+
+```{r}
+
+hist(data.df$qual, main="QUAL", xlab="qual")
+hist(data.df$qual[data.df$qual<10000], main="QUAL (<10000)", xlab="qual")
+quantile(data.df$qual, na.rm=T)
+
+```
+
+# Stars in Alt
+
+```{r}
+
+x <- grepl("\\*",data.df$alt)
+sum(x)
+head(data.df[x,])
+rm(x)
+
+```
+
+# Save data
+
+```{r}
+
+save(data.df,file=file.path(data_folder,"s03_explore_vcf.RData"))
+
+```
+
+# Final section
+
+```{r}
+ls()
+gc()
+Sys.time()
+sessionInfo()
+```

@@ -1,0 +1,61 @@
+./s04_explore_vcf.sh
+Thu  1 Apr 18:52:29 UTC 2021
+
+bcftools 1.11
+Using htslib 1.11
+Copyright (C) 2020 Genome Research Ltd.
+License Expat: The MIT/Expat license
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+source_vcf: /home/share/data/s02_split_multiallelic_sites/zhang_hg38.bwa.QC.MA-flag.vcf.gz
+split_vcf: /home/share/data/s02_split_multiallelic_sites/zhang_hg38.bwa.QC.MA-flag.MA-split.vcf.gz
+data_folder: /home/share/data/s02_split_multiallelic_sites
+
+Variant counts in source VCF:
+
+Number of samples: 30
+Number of SNPs:    226906
+Number of INDELs:  22141
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   248487
+
+Variant counts in split VCF:
+
+Number of samples: 30
+Number of SNPs:    227474
+Number of INDELs:  26291
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   255078
+
+Calculating bcfstats in split VCF...
+
+Making bcfstats plots...
+
+Parsing bcftools stats output: /home/share/data/s02_split_multiallelic_sites/bcfstats/zhang_hg38.bwa.QC.MA-flag.MA-split.vchk
+Plotting graphs: python3 plot.py
+Creating PDF: pdflatex summary.tex >plot-vcfstats.log 2>&1
+Finished: /home/share/data/s02_split_multiallelic_sites/bcfstats/summary.pdf
+
+Extracting annotations from split VCF ...
+
+A bi-allelic site in split vcf
+
+chr1	13273	rs531730856	G	C	7125.3	.	.
+
+A multiallelic site in source vcf
+
+chr1	935954	rs4072383	G	T,A	14336	.	MULTIALLELIC
+
+A multiallelic site in split vcf
+
+chr1	935954	rs4072383	G	T	14336	.	MULTIALLELIC
+chr1	935954	rs4072383	G	A	14336	.	MULTIALLELIC
+
+Making summary of split VCF ...
+
+Done
+Thu  1 Apr 18:52:47 UTC 2021
+

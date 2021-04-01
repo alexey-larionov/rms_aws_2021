@@ -1,0 +1,19 @@
+./s01_compress_vcf.sh
+Thu  1 Apr 17:39:14 UTC 2021
+
+bcftools 1.11
+Using htslib 1.11
+Copyright (C) 2020 Genome Research Ltd.
+License Expat: The MIT/Expat license
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+source_vcf: /home/share/data/s01_copy_vcf/zhang_hg38.bwa.QC.vcf
+output_vcf: /home/share/data/s01_copy_vcf/zhang_hg38.bwa.QC.vcf.gz
+
+Compressing ...
+
+Indexing ...
+
+Done
+Thu  1 Apr 17:39:26 UTC 2021

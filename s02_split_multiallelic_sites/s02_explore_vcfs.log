@@ -1,0 +1,50 @@
+./s02_explore_vcfs.sh
+Thu  1 Apr 18:51:06 UTC 2021
+
+bcftools 1.11
+Using htslib 1.11
+Copyright (C) 2020 Genome Research Ltd.
+License Expat: The MIT/Expat license
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+vcf: 
+data_folder: /home/share/data/s02_split_multiallelic_sites
+
+Multiallelic variant counts:
+
+Number of samples: 30
+Number of SNPs:    1939
+Number of INDELs:  3427
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   4806
+
+Variant counts in vcf with flagged MA sites:
+
+Number of samples: 30
+Number of SNPs:    226906
+Number of INDELs:  22141
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   248487
+
+String added to the header of flagged file
+
+##INFO=<ID=MULTIALLELIC,Number=0,Type=Flag,Description="Sites listed in MULTIALLELIC">
+
+A multiallelic site in source vcf
+
+chr1	935954	rs4072383	G	T,A	14336	.	.
+
+A multiallelic site in flagged vcf
+
+chr1	935954	rs4072383	G	T,A	14336	.	MULTIALLELIC
+
+A biallelic site in flagged vcf
+
+chr1	13273	rs531730856	G	C	7125.3	.	.
+
+Done
+Thu  1 Apr 18:51:09 UTC 2021
+
