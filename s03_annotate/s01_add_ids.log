@@ -1,0 +1,43 @@
+./s01_add_ids.sh
+Fri  2 Apr 12:12:30 UTC 2021
+
+bcftools 1.11
+Using htslib 1.11
+Copyright (C) 2020 Genome Research Ltd.
+License Expat: The MIT/Expat license
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+source_vcf: /home/share/data/s02_split_multiallelic_sites/zhang_hg38.bwa.QC.MA-flag.MA-split.vcf.gz
+output_vcf: /home/share/data/s03_annotate/zhang_hg38.bwa.QC.MA-flag.MA-split.ID.vcf.gz
+
+Adding variant IDs ...
+
+Indexing ...
+
+Source VCF
+# [1]CHROM	[2]POS	[3]ID	[4]REF	[5]ALT	[6]FILTER	[7]QUAL	[8](null)
+chr1	13273	rs531730856	G	C	.	7125.3	.
+chr1	13380	rs571093408	C	G	.	601.46	.
+chr1	13417	rs777038595	C	CGAGA	.	3971.68	.
+chr1	13550	rs554008981	G	A	.	460.61	.
+chr1	69511	rs2691305	A	G	.	63583.1	.
+chr1	69761	rs200505207	A	T	.	3281.4	.
+chr1	494515	rs576317820	T	A	.	1140.13	.
+chr1	494772	rs750036001	C	G	.	301.59	.
+chr1	494781	rs767083014	C	T	.	308.59	.
+
+Output VCF
+# [1]CHROM	[2]POS	[3]ID	[4]REF	[5]ALT	[6]FILTER	[7]QUAL	[8](null)
+chr1	13273	chr1_13273_G_C	G	C	.	7125.3	.
+chr1	13380	chr1_13380_C_G	C	G	.	601.46	.
+chr1	13417	chr1_13417_C_CGAGA	C	CGAGA	.	3971.68	.
+chr1	13550	chr1_13550_G_A	G	A	.	460.61	.
+chr1	69511	chr1_69511_A_G	A	G	.	63583.1	.
+chr1	69761	chr1_69761_A_T	A	T	.	3281.4	.
+chr1	494515	chr1_494515_T_A	T	A	.	1140.13	.
+chr1	494772	chr1_494772_C_G	C	G	.	301.59	.
+chr1	494781	chr1_494781_C_T	C	T	.	308.59	.
+
+Done
+Fri  2 Apr 12:12:40 UTC 2021

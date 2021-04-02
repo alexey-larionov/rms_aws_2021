@@ -1,10 +1,14 @@
 #!/bin/bash
 # x01_thinn_vcf_for_testing.sh
 
-# Alexey Larionov 30Mar2021
+# Alexey Larionov 02Apr2021
 
-# Use:
+# Intended use:
 # ./x01_thinn_vcf_for_testing.sh &> x01_thinn_vcf_for_testing.log
+
+# Note
+# This script is kept here just in case: if a VCF file needs to be
+# thinned for VEP debugging: its hard to debug, when each run takes ~30 min
 
 # Stop at runtime errors
 set -e
@@ -16,17 +20,17 @@ echo ""
 
 # Files and folders
 base_folder="/home/share"
-base_name="IHCAPX8_dragen_joint.hard-filtered.PF.MA-flag.MA-split.ID.ClinVar.std-Chr"
+base_name="data.name" # update the name
 
-scripts_folder="${base_folder}/scripts/s04_annotate"
+scripts_folder="${base_folder}/scripts/s03_annotate"
 cd "${scripts_folder}"
 
-data_folder="${base_folder}/data/s04_annotate"
+data_folder="${base_folder}/data/s03_annotate" # update the folder if needed
 source_vcf="${data_folder}/${base_name}.vcf.gz"
 
 output_vcf="${data_folder}/thinned.recode.vcf"
+# the prefix ("${data_folder}/thinned") will be specifyed in the --out option (see below)
 # the default suffix ".recode.vcf" will be added by vcftools
-# to the prefix, specifyed in the --out option (see below)
 
 # Progress report
 vcftools --version
@@ -36,6 +40,9 @@ echo "output_vcf: ${output_vcf}"
 echo ""
 
 # Thinn vcf using vcftools
+# - this will thinn the file to keep minimal distance of 100000 bases between variants
+# - the --out option specifyes "prefix" of the output file
+# - the default suffix ".recode.vcf" will be added to the output file name by vcftools
 echo "Thinning ..."
 vcftools \
 --gzvcf "${source_vcf}" \

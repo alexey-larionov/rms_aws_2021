@@ -1,0 +1,42 @@
+./s04_keep_only_standard_chromosomes.sh
+Fri  2 Apr 12:46:26 UTC 2021
+
+bcftools 1.11
+Using htslib 1.11
+Copyright (C) 2020 Genome Research Ltd.
+License Expat: The MIT/Expat license
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+source_vcf: /home/share/data/s03_annotate/zhang_hg38.bwa.QC.MA-flag.MA-split.ID.vcf.gz
+output_vcf: /home/share/data/s03_annotate/zhang_hg38.bwa.QC.MA-flag.MA-split.ID.std-Chr.vcf.gz
+
+Select variants ...
+
+Indexing ...
+
+Counts in source vcf:
+Number of samples: 30
+Number of SNPs:    227474
+Number of INDELs:  26291
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   255078
+
+Counts in output vcf:
+Number of samples: 30
+Number of SNPs:    227443
+Number of INDELs:  26291
+Number of MNPs:    0
+Number of others:  0
+Number of sites:   255047
+
+Number of contigs in source vcf header:
+456
+
+Number of contigs in output vcf header:
+456
+
+Done
+Fri  2 Apr 12:46:40 UTC 2021
+

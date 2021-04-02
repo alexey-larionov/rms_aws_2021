@@ -1,10 +1,10 @@
 #!/bin/bash
-# s04_annotate_with_clinvar.sh
+# s06_annotate_with_clinvar.sh
 
-# Alexey Larionov 29Mar2021
+# Alexey Larionov 02Apr2021
 
 # Use:
-# ./s04_annotate_with_clinvar.sh &> s04_annotate_with_clinvar.log
+# ./s06_annotate_with_clinvar.sh &> s06_annotate_with_clinvar.log
 
 # Stop at runtime errors
 set -e
@@ -16,12 +16,12 @@ echo ""
 
 # Files and folders
 base_folder="/home/share"
-base_name="IHCAPX8_dragen_joint.hard-filtered.PF.MA-flag.MA-split.ID"
+base_name="zhang_hg38.bwa.QC.MA-flag.MA-split.ID.std-Chr.Reheaded"
 
-scripts_folder="${base_folder}/scripts/s04_annotate"
+scripts_folder="${base_folder}/scripts/s03_annotate"
 cd "${scripts_folder}"
 
-data_folder="${base_folder}/data/s04_annotate"
+data_folder="${base_folder}/data/s03_annotate"
 source_vcf="${data_folder}/${base_name}.vcf.gz"
 output_vcf="${data_folder}/${base_name}.ClinVar.vcf.gz"
 clinvar_vcf="${data_folder}/clinvar_20210110.chr.vcf.gz"

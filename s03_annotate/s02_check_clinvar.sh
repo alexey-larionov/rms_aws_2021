@@ -1,7 +1,7 @@
 #!/bin/bash
 # s02_check_clinvar.sh
 
-# Alexey Larionov 29Mar2021
+# Alexey Larionov 02Apr2021
 
 # Use:
 # ./s02_check_clinvar.sh &> s02_check_clinvar.log
@@ -16,12 +16,12 @@ echo ""
 
 # Files and folders
 base_folder="/home/share"
-base_name="IHCAPX8_dragen_joint.hard-filtered.PF.MA-flag.MA-split.ID"
+base_name="zhang_hg38.bwa.QC.MA-flag.MA-split.ID"
 
-scripts_folder="${base_folder}/scripts/s04_annotate"
+scripts_folder="${base_folder}/scripts/s03_annotate"
 cd "${scripts_folder}"
 
-data_folder="${base_folder}/data/s04_annotate"
+data_folder="${base_folder}/data/s03_annotate"
 data_vcf="${data_folder}/${base_name}.vcf.gz"
 
 clinvar_folder="${base_folder}/resources/ClinVar/GRCh38/v_20210110"

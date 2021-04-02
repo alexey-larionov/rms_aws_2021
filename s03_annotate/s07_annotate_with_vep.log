@@ -1,0 +1,121 @@
+./s07_annotate_with_vep.sh
+Fri  2 Apr 14:49:59 UTC 2021
+
+--- Files ---
+
+source_vcf: /home/share/data/s03_annotate/zhang_hg38.bwa.QC.MA-flag.MA-split.ID.std-Chr.Reheaded.ClinVar.vcf.gz
+output_vcf: /home/share/data/s03_annotate/zhang_hg38.bwa.QC.MA-flag.MA-split.ID.std-Chr.Reheaded.ClinVar.VEP.vcf.gz
+vep_report: /home/share/data/s03_annotate/zhang_hg38.bwa.QC.MA-flag.MA-split.ID.std-Chr.Reheaded.ClinVar.VEP.html
+
+--- VEP cache ---
+
+cache_version: 102
+cache_assembly: GRCh38
+
+polyphen	2.2.2
+sift	sift5.2.2
+COSMIC	91
+1000genomes	phase3
+ESP	V2-SSA137
+gnomAD	r2.1
+gencode	GENCODE 36
+HGMD-PUBLIC	20194
+genebuild	2014-07
+regbuild	1.0
+dbSNP	153
+assembly	GRCh38.p13
+ClinVar	202006
+
+See more information about used cache in the following file:
+/home/share/data/s03_annotate/vep_cache_info.txt
+
+--- VEP plugins ---
+
+CADD annotation files:
+/home/share/resources/CADD/GRCh38/v_1.6/whole_genome_SNVs.tsv.gz
+/home/share/resources/CADD/GRCh38/v_1.6/gnomad.genomes.r3.0.indel.tsv.gz
+
+--- Other settings ---
+
+n_threads: 4
+
+Annotating ...
+
+Indexing ...
+
+Added VEP annotations:
+
+0	Allele
+1	Consequence
+2	IMPACT
+3	SYMBOL
+4	Gene
+5	Feature_type
+6	Feature
+7	BIOTYPE
+8	EXON
+9	INTRON
+10	HGVSc
+11	HGVSp
+12	cDNA_position
+13	CDS_position
+14	Protein_position
+15	Amino_acids
+16	Codons
+17	Existing_variation
+18	DISTANCE
+19	STRAND
+20	FLAGS
+21	VARIANT_CLASS
+22	SYMBOL_SOURCE
+23	HGNC_ID
+24	CANONICAL
+25	MANE
+26	TSL
+27	APPRIS
+28	CCDS
+29	ENSP
+30	SWISSPROT
+31	TREMBL
+32	UNIPARC
+33	UNIPROT_ISOFORM
+34	GENE_PHENO
+35	NEAREST
+36	SIFT
+37	PolyPhen
+38	DOMAINS
+39	miRNA
+40	HGVS_OFFSET
+41	AF
+42	AFR_AF
+43	AMR_AF
+44	EAS_AF
+45	EUR_AF
+46	SAS_AF
+47	AA_AF
+48	EA_AF
+49	gnomAD_AF
+50	gnomAD_AFR_AF
+51	gnomAD_AMR_AF
+52	gnomAD_ASJ_AF
+53	gnomAD_EAS_AF
+54	gnomAD_FIN_AF
+55	gnomAD_NFE_AF
+56	gnomAD_OTH_AF
+57	gnomAD_SAS_AF
+58	MAX_AF
+59	MAX_AF_POPS
+60	CLIN_SIG
+61	SOMATIC
+62	PHENO
+63	PUBMED
+64	MOTIF_NAME
+65	MOTIF_POS
+66	HIGH_INF_POS
+67	MOTIF_SCORE_CHANGE
+68	TRANSCRIPTION_FACTORS
+69	CADD_PHRED
+70	CADD_RAW
+
+Done
+Fri  2 Apr 15:31:42 UTC 2021
