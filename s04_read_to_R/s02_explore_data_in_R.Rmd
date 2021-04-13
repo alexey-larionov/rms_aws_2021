@@ -1,19 +1,19 @@
 ---
 title: "Explore data in R"
 author: "Alexey Larionov"
-date: "23 September 2020"
+date: "13 Apr 2021"
 output: 
   html_document:
     toc: true
     toc_float: true
+    number_sections: true
 editor_options: 
   chunk_output_type: console
 ---
 
 # Summary
 
-To be added ...  
-Phenotype data ?  
+It's just a draft that hadn't been run or continued because the downstream analysis was switched to outside of AWS  
 
 <style>
 pre{
@@ -47,10 +47,9 @@ graphics.off()
 options(stringsAsFactors = F)
 
 # Working folders
-base_folder <- "/rds/project/erf33/rds-erf33-medgen"
-project_folder=file.path(base_folder,"users/mae/RMS_2020Sept/RMS_cclgAB")
-data_folder <- file.path(project_folder,"data","t01_read_to_R")
-scripts_folder <- file.path(project_folder,"scripts","t01_read_to_R")
+base_folder <- "/home/share"
+data_folder <- file.path(base_folder,"data/s04_read_to_R")
+scripts_folder <- file.path(base_folder,"scripts/s04_read_to_R")
 setwd(scripts_folder)
 
 # Required libraries
@@ -64,6 +63,9 @@ library(dplyr)
 
 # VCF file name
 load(file.path(data_folder,"s01_import_vcf_to_R.RData"))
+base_folder <- "/home/share"
+data_folder <- file.path(base_folder,"data/s04_read_to_R")
+scripts_folder <- file.path(base_folder,"scripts/s04_read_to_R")
 
 ```
 
@@ -73,13 +75,13 @@ load(file.path(data_folder,"s01_import_vcf_to_R.RData"))
 
 ls()
 
-dim(full_header.df)
-dim(full_variants.df)
+dim(vcf_header.df)
+dim(variants.df)
 
-dim(full_dp.mx)
-dim(full_gq.mx)
-dim(full_gt.mx)
-dim(full_ad.mx)
+dim(dp.mx)
+dim(gq.mx)
+dim(gt.mx)
+dim(ad.mx)
 
 ```
 
@@ -87,11 +89,13 @@ dim(full_ad.mx)
 
 ```{r}
 
-full_variants.df %>% 
-  group_by(CHROM) %>% 
-  summarise(counts=n()) %>% 
-  arrange(CHROM) %>% 
-  print(n=Inf)
+chromosomes_order <- c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10",
+                       "chr11","chr12","chr13","chr14","chr15","chr16","chr17","chr18","chr19","chr20",
+                       "chr21","chr22","chrX","chrY","chrM")
+variants.df$CHROM <- ordered(variants.df$CHROM, chromosomes_order)
+summary(variants.df$CHROM)
+barplot(summary(variants.df$CHROM),las=2)
+rm(chromosomes_order)
 
 ```
 
@@ -99,20 +103,21 @@ full_variants.df %>%
 
 ```{r}
 
-full_variants.df %>% 
+variants.df %>% 
   group_by(FILTER) %>% 
   summarise(counts=n()) %>% 
   arrange(desc(counts))
 
 ```
 
-# Variants' QUAL
+# QUAL
 
 ```{r}
 
-quantile(full_variants.df$QUAL)
-hist(full_variants.df$QUAL)
-hist(log10(full_variants.df$QUAL))
+quantile(variants.df$QUAL)
+hist(variants.df$QUAL)
+hist(variants.df$QUAL[variants.df$QUAL<250])
+hist(log10(variants.df$QUAL))
 
 ```
 
